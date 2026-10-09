@@ -12636,8 +12636,8 @@ async function editList(){
   const list=await dbq(sb.from("assets").select("id,name,status").order("name"));
   render(`${head("Edit assets")}
   <div class="panel"><b>Add equipment</b>
-  <label for="nm">Name</label><input id="nm" placeholder="e.g. Canon EOS R6">
-  <label for="nt">Notes (optional)</label><textarea id="nt" rows="2" placeholder="Serial number, kit contents..."></textarea>
+  <label for="nm">Name</label><input id="nm" placeholder="e.g. Camera">
+  <label for="nt">Notes (optional)</label><textarea id="nt" rows="2" placeholder="Item code, Accessories..."></textarea>
   <button class="btn alt full" id="add">Add and create QR code</button></div>
   ${list.map(a=>`<div class="item" data-id="${a.id}"><div>${esc(a.name)}<small>${a.id}</small></div><span class="badge ${a.status==="out"?"out":""}">${a.status==="out"?"Checked out":"In storage"}</span></div>`).join("")}
   ${list.length?'<button class="btn alt full" id="print">Print all QR labels</button>':""}`);
